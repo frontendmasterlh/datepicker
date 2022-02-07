@@ -35,11 +35,31 @@
     return html;
   };
 
-  datepicker.init = function ($input) {
+  datepicker.init = function (input) {
     let html = datepicker.buildUi(2022, 3)
     let $wrapper = document.createElement('div');
     $wrapper.classList.add('ui-datepicker-wrapper')
     $wrapper.innerHTML = html;
     document.body.appendChild($wrapper);
+
+    let $input = document.querySelector(input);
+    console.log($input);
+    let isOpen = false;
+    $input.addEventListener('click', function(e) {
+      if(isOpen){
+        console.log(1)
+        $wrapper.classList.remove('ui-datepicker-wrapper-show');
+        isOpen = false;
+      }else{
+        $wrapper.classList.add('ui-datepicker-wrapper-show')
+        let left = $input.offsetLeft
+        let top = $input.offsetTop
+        let height = $input.offsetHeight
+        // console.log(left + " " + top + " " + height)
+        $wrapper.style.top = top + height + 2 + 'px'
+        $wrapper.style.left = left + 'px'
+        isOpen = true;
+      }
+    },false)
   };
 })();
