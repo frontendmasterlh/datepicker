@@ -6,10 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>DatePicker</title>
+  <style>
+    .datepicker{
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px;
+      height: 24px;
+      line-height: 24px;
+      width: 228px;
+    }
+    .datepicker:focus{
+      outline: none;
+      border: 1px solid #1abc9c;
+    }
+  </style>
 </head>
 <body>
-  <div class="ui-datepicker-wrapper">
-    <div class="ui-datepicker-header">
+  <input type="text" class="datepicker">
+  <div class="ui-datepicker-wrapper" id="test">
+    <!-- <div class="ui-datepicker-header">
       <a href="#" class="ui-datepicker-btn ui-datepicker-prev-btn">&lt;</a>
       <a href="#" class="ui-datepicker-btn ui-datepicker-next-btn">&gt;</a>
       <span class="ui-datepicker-curr-month">2022-2</span>
@@ -75,12 +90,12 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
   </div>
   <script src="./date.js"></script>
+  <script src="./main.js"></script>
   <script>
-   var monthData = datepicker.getMonthData()
-   console.log(monthData)
+    datepicker.init(document.querySelector('.datepicker'))
   </script>
 </body>
 </html>
